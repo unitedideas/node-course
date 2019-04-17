@@ -5,7 +5,6 @@ const location = process.argv[2]
 if (!location) {
     console.log('Please provide location')
 } else {
-
     geocode(location, (err, data) => {
         if (err) {
             return console.log('Error:', err)
