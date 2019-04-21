@@ -20,8 +20,6 @@
 // geocode('Portland', (data) => {
 //     console.log(data)
 // })
-
-
 //
 // Goal: Mess around with the callback pattern
 //
