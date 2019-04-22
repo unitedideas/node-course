@@ -5,15 +5,15 @@ const location = process.argv[2]
 if (!location) {
     console.log('Please provide location')
 } else {
-    geocode(location, (err, data) => {
+    geocode(location, (err, {lat, long, place}) => {
         if (err) {
             return console.log('Error:', err)
         } else {
-            forecast(data.lat, data.long, (err, forecastData) => {
+            forecast(lat, long, (err, forecastData) => {
                 if (err) {
                     return console.log('Error:', err)
                 } else {
-                    console.log(data.place)
+                    console.log(place)
                     console.log('Data:', forecastData)
                 }
             })
