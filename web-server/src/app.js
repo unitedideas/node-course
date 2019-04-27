@@ -1,44 +1,46 @@
 const path = require('path')
 const express = require('express')
 
-console.log(__dirname)
-console.log(path.join(__dirname, '../public'))
-
 const app = express()
-const publicDirectoryPath = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../views')
 
-app.set('views', viewsPath)
+// Define paths for Express config
+const publicDirectoryPath = path.join(__dirname, '../public')
+const viewsPath = path.join(__dirname, '../templates')
+
+// Setup handlebars engine and views location
 app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Main Page',
-        name: 'Shane'
+        title: 'Weather',
+        name: 'Shane Cheek'
     })
 })
+
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Shane'
+        name: 'Shane Cheek'
     })
 })
+
 app.get('/help', (req, res) => {
     res.render('help', {
-        msg: 'This is some helpful text'
+        helpText: 'This is some helpful text.'
     })
 })
 
 app.get('/weather', (req, res) => {
     res.send({
-        location: 'Phiily',
-        temp: 48
+        forecast: 'It is raining',
+        location: 'Portland'
     })
 })
-
 const port = 5000
-
 app.listen(port, () => {
-    console.log(`Server is up on port ${port}`)
+    console.log(`Server is up on port ${port}.`)
 })
