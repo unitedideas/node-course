@@ -17,14 +17,14 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Shane Cheek'
+        name: 'Andrew Mead'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Shane Cheek'
+        name: 'Andrew Mead'
     })
 })
 
@@ -36,8 +36,8 @@ app.get('/help', (req, res) => {
 
 app.get('/weather', (req, res) => {
     res.send({
-        forecast: 'It is raining',
-        location: 'Portland'
+        forecast: 'It is snowing',
+        location: 'Philadelphia'
     })
 })
 const port = 5000
