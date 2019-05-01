@@ -20,20 +20,17 @@ app.get('', (req, res) => {
         name: 'Andrew Mead'
     })
 })
-
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
         name: 'Andrew Mead'
     })
 })
-
 app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'This is some helpful text.'
     })
 })
-
 app.get('/weather', (req, res) => {
     res.send({
         forecast: 'It is snowing',
